@@ -1,0 +1,4 @@
+scipy==1.15.2
+pycocotools==2.0.8
+matplotlib==3.10.0
+Pillow==11.1.0

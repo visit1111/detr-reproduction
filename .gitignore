@@ -15,3 +15,10 @@ experiment-*
 .mypy_cache/*
 not_tracked_dir/
 .vscode
+.venv-repro/
+artifacts/
+output/
+data/
+*.pt
+*.onnx
+*.log

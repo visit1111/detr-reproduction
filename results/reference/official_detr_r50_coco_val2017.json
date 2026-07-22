@@ -1,0 +1,15 @@
+{
+  "model": "DETR-R50",
+  "dataset": "COCO val2017",
+  "images": 5000,
+  "metrics": {
+    "AP": 42.0,
+    "AP50": 62.4,
+    "AP75": 44.2
+  },
+  "tolerance": 0.2,
+  "checkpoint": {
+    "url": "https://dl.fbaipublicfiles.com/detr/detr-r50-e632da11.pth",
+    "sha256": "e632da11ec76ae67bac2f8579fbed3724e08dead7d200ca13e019b197784eadc"
+  }
+}

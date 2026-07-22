@@ -1,0 +1,23 @@
+{
+  "dataset": {
+    "fraction": 0.1,
+    "seed": 42,
+    "expected_source_train_images": 118287,
+    "expected_subset_train_images": 11829,
+    "expected_val_images": 5000,
+    "expected_categories": 80
+  },
+  "training": {
+    "epochs": 100,
+    "lr_drop": 80,
+    "batch_size_per_gpu": 4,
+    "num_workers_per_rank": 8,
+    "gpu_count": 4
+  },
+  "runtime": {
+    "python": "3.10-3.12",
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "cuda_wheel": "cu124"
+  }
+}
