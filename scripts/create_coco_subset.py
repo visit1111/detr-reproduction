@@ -10,7 +10,10 @@ import random
 from pathlib import Path
 from typing import Any
 
-from scripts.verify_dataset import verify_split
+try:
+    from scripts.verify_dataset import verify_split
+except ModuleNotFoundError:  # Support `python scripts/create_coco_subset.py`.
+    from verify_dataset import verify_split
 
 
 def _ensure_link(link: Path, target: Path) -> None:
