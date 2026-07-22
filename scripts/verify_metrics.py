@@ -13,8 +13,9 @@ METRIC_NAMES = ("AP", "AP50", "AP75")
 
 
 def _extract_metrics(data: dict[str, Any]) -> dict[str, float]:
-    if "test_coco_eval_bbox" in data:
-        values = data["test_coco_eval_bbox"]
+    bbox_key = next((key for key in ("test_coco_eval_bbox", "coco_eval_bbox") if key in data), None)
+    if bbox_key is not None:
+        values = data[bbox_key]
         if not isinstance(values, list) or len(values) < 3:
             raise ValueError("test_coco_eval_bbox must contain at least three values")
         scale = 100.0 if max(abs(float(value)) for value in values[:3]) <= 1.0 else 1.0

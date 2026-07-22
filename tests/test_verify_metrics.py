@@ -25,6 +25,17 @@ class VerifyMetricsTest(unittest.TestCase):
             self.assertTrue(summary["passed"])
             self.assertAlmostEqual(summary["actual"]["AP"], 42.05)
 
+    def test_accepts_evaluation_only_metric_key(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            actual = self._write(root, "actual.json", {"coco_eval_bbox": [0.42, 0.624, 0.442]})
+            reference = self._write(
+                root,
+                "reference.json",
+                {"metrics": {"AP": 42.0, "AP50": 62.4, "AP75": 44.2}, "tolerance": 0.2},
+            )
+            self.assertTrue(verify(actual, reference, tolerance=None)["passed"])
+
     def test_rejects_metric_outside_tolerance(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
