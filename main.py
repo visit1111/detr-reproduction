@@ -17,6 +17,14 @@ from engine import evaluate, train_one_epoch
 from models import build_model
 
 
+def write_eval_metrics(output_dir: Path, stats: dict) -> Path:
+    """Write evaluation statistics in a portable, machine-readable format."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "eval_metrics.json"
+    path.write_text(json.dumps(stats, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return path
+
+
 def get_args_parser():
     parser = argparse.ArgumentParser('Set transformer detector', add_help=False)
     parser.add_argument('--lr', default=1e-4, type=float)
@@ -185,6 +193,8 @@ def main(args):
         test_stats, coco_evaluator = evaluate(model, criterion, postprocessors,
                                               data_loader_val, base_ds, device, args.output_dir)
         if args.output_dir:
+            if utils.is_main_process():
+                write_eval_metrics(output_dir, test_stats)
             utils.save_on_master(coco_evaluator.coco_eval["bbox"].eval, output_dir / "eval.pth")
         return
 
