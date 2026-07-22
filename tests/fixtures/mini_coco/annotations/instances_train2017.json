@@ -1,0 +1,20 @@
+{
+  "info": {"description": "mini train fixture"},
+  "licenses": [],
+  "images": [
+    {"id": 1, "file_name": "000000000001.jpg", "width": 8, "height": 8},
+    {"id": 2, "file_name": "000000000002.jpg", "width": 8, "height": 8},
+    {"id": 3, "file_name": "000000000003.jpg", "width": 8, "height": 8},
+    {"id": 4, "file_name": "000000000004.jpg", "width": 8, "height": 8}
+  ],
+  "annotations": [
+    {"id": 101, "image_id": 1, "category_id": 1, "bbox": [0, 0, 4, 4], "area": 16, "iscrowd": 0},
+    {"id": 102, "image_id": 2, "category_id": 2, "bbox": [1, 1, 4, 4], "area": 16, "iscrowd": 0},
+    {"id": 103, "image_id": 3, "category_id": 1, "bbox": [2, 2, 4, 4], "area": 16, "iscrowd": 0},
+    {"id": 104, "image_id": 4, "category_id": 2, "bbox": [3, 3, 4, 4], "area": 16, "iscrowd": 0}
+  ],
+  "categories": [
+    {"id": 1, "name": "thing-a", "supercategory": "fixture"},
+    {"id": 2, "name": "thing-b", "supercategory": "fixture"}
+  ]
+}

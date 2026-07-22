@@ -1,0 +1,14 @@
+{
+  "info": {"description": "mini val fixture"},
+  "licenses": [],
+  "images": [
+    {"id": 5, "file_name": "000000000005.jpg", "width": 8, "height": 8}
+  ],
+  "annotations": [
+    {"id": 105, "image_id": 5, "category_id": 1, "bbox": [0, 0, 4, 4], "area": 16, "iscrowd": 0}
+  ],
+  "categories": [
+    {"id": 1, "name": "thing-a", "supercategory": "fixture"},
+    {"id": 2, "name": "thing-b", "supercategory": "fixture"}
+  ]
+}
