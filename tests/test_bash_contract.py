@@ -23,6 +23,11 @@ def bash_is_usable():
 
 
 class BashContractTest(unittest.TestCase):
+    def test_entry_point_uses_linux_line_endings(self):
+        self.assertNotIn(b"\r\n", (ROOT / "reproduce.sh").read_bytes())
+        attributes = (ROOT / ".gitattributes").read_text(encoding="utf-8")
+        self.assertIn("*.sh text eol=lf", attributes)
+
     def test_entry_point_contains_required_training_steps(self):
         text = (ROOT / "reproduce.sh").read_text(encoding="utf-8")
         for required in (
