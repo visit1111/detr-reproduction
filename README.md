@@ -1,6 +1,8 @@
 **DE⫶TR**: End-to-End Object Detection with Transformers
 ========
 
+> 本仓库在官方 DETR 历史上增加了 Windows 官方权重评估和 Linux 四卡 10% COCO 训练的**一键复现**流程。操作命令、固定版本、参考指标和验收方法见 [REPRODUCE.md](REPRODUCE.md)。
+
 [![Support Ukraine](https://img.shields.io/badge/Support-Ukraine-FFD500?style=flat&labelColor=005BBB)](https://opensource.fb.com/support-ukraine)
 
 PyTorch training code and pretrained models for **DETR** (**DE**tection **TR**ansformer).

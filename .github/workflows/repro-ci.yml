@@ -1,0 +1,30 @@
+name: Reproducibility checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  fast-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check Linux entry point syntax
+        run: bash -n reproduce.sh
+      - name: Run dependency-free contract tests
+        run: |
+          python -m unittest -v \
+            tests.test_bash_contract \
+            tests.test_create_coco_subset \
+            tests.test_documentation_contract \
+            tests.test_download_checkpoint \
+            tests.test_powershell_contract \
+            tests.test_record_manifest \
+            tests.test_repository_contract \
+            tests.test_verify_dataset \
+            tests.test_verify_metrics
+      - name: Compile utility scripts
+        run: python -m py_compile scripts/*.py
